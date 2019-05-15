@@ -2,14 +2,27 @@
 
 
 <% @tasks.each do |task| %>
-  <div>
+  <div class="form-group">
     <% if task.completed %>
       <input type="checkbox" name="tasks" checked>
     <% else %>
       <input type="checkbox" name="tasks">
     <% end %>
     <label for="tasks" ><%= link_to task.title, task_path(task.id) %></label>
+    <label for="tasks"><%= link_to task_path(task.id),
+      method: :delete do %>
+      <i class='far fa-trash-alt'></i>
+      <% end %>
+      </label>
   </div>
 <% end %>
+
+<%= link_to "add new", new_path %>
+
+
+
+
+
+
 
 
